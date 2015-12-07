@@ -1,1 +1,1 @@
-angular.module('compatibilityAstrologer', ['ngRoute', 'appRoutes', 'MainCtrl', 'TypeCtrl', 'TypeService', 'GeekCtrl', 'GeekService']);
+var app = angular.module('compatibilityAstrologer', ['ngRoute', 'appRoutes', 'TypeService']);

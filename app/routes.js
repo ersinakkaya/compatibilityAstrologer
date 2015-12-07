@@ -3,7 +3,8 @@ module.exports = function(app) {
 	// server routes ===========================================================
 	app.get('/api/index', function(req, res) {
 		var data = {
-			test: true
+			test: true,
+			data: 'asdasdasdasd'
 		}
 		res.send(data);
 	});
