@@ -3,4 +3,5 @@ app.controller('ResultController', ['$scope', '$location', 'api', function($scop
 	if(typeof($scope.session_key) == 'undefined'){
 		$location.path('/');
 	}
+	$scope.result = Math.floor((Math.random() * 51)) + 50;
 }]);
