@@ -1,0 +1,23 @@
+<h2>What is your birthday?</h2>
+<div class="form-group">
+	<form ng-submit="submit()" ng-controller="BirthdayController">
+		<label for="exampleInputEmail1">Your Birthday (Eg. 12/24/1970)</label>
+		<input type="text" ng-model="user_birthday" class="form-control" placeholder="Birthday">
+		<br/>
+    	<div ng-init="user_sex='male'" />
+        	<input type="radio" ng-model="user_sex" value="male"><label>Male</label>
+        	<input type="radio" ng-model="user_sex" value="female"><label>Female</label>
+      	</div>
+		<br/>
+		<label for="exampleInputEmail1">Collaborator's Birthday</label>
+		<input type="text" ng-model="collaborator_birthday" class="form-control" placeholder="Birthday">
+		<br/>
+		<div ng-init="collaborator_sex='female'" style="padding-bottom:10px"/>
+        	<input type="radio" ng-model="collaborator_sex" value="male"><label>Male</label>
+        	<input type="radio" ng-model="collaborator_sex" value="female"><label>Female</label>
+      	</div>
+		<div style="text-align:center">
+			<input type="submit" id="submit" value="Continue" class="btn btn-large btn-success" />
+		</div>
+	</form>
+</div>

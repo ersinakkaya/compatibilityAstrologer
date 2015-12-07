@@ -3,7 +3,8 @@
   "main": "server.js",
   "dependencies": {
     "express" : "~4.5.1",
-	"mongoose" : "~3.8.0",
+	"mongodb" : "1.4.34",
+	"optimist" : "*",
 	"body-parser" : "~1.4.2",
 	"method-override" : "~2.0.2"
   }

@@ -4,39 +4,45 @@
 	<meta charset="UTF-8">
 	<base href="/">
 
-	<title>Starter Node and Angular</title>
+	<title>Compatibility Astrologer</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+	<link rel="stylesheet" href="libs/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
 
 	<!-- JS -->
 	<script src="libs/angular/angular.min.js"></script>
 	<script src="libs/angular-route/angular-route.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="libs/bootstrap/js/datepicker.js"></script>
 
 	<!-- ANGULAR CUSTOM -->
-	<script src="js/services/TypeService.js"></script>
 	<script src="js/services/ApiService.js"></script>
 	<script src="js/app.js"></script>
-	<script src="js/controllers/GeekCtrl.js"></script>
-	<script src="js/controllers/MainCtrl.js"></script>
-	<script src="js/controllers/TypeCtrl.js"></script>
+	<script src="js/controllers/MainController.js"></script>
+	<script src="js/controllers/TypeController.js"></script>
+	<script src="js/controllers/BirthdayController.js"></script>
+	<script src="js/controllers/QuestionsController.js"></script>
+	<script src="js/controllers/ResultController.js"></script>
 	<script src="js/appRoutes.js"></script>
 </head>
 <body ng-app="compatibilityAstrologer" ng-controller="MainController">
-<div class="container">
-	
-	<!-- HEADER -->
-	<nav class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/">Compatibility Astrologer v1.0</a>
+	<div class="container">
+		
+		<!-- HEADER -->
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Compatibility Astrologer v1.0</a>
+			</div>
+		</nav>
+
+		<!-- ANGULAR DYNAMIC CONTENT -->
+		<div class="jumbotron text-center">
+			<div ng-view></div>
 		</div>
-	</nav>
 
-	<!-- ANGULAR DYNAMIC CONTENT -->
-	<div ng-view>
 	</div>
-
-</div>
 </body>
 </html>

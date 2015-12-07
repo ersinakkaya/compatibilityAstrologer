@@ -1,17 +1,16 @@
-module.exports = function(app) {
+var users = require('./controllers/users');
 
-	// server routes ===========================================================
-	app.get('/api/index', function(req, res) {
-		var data = {
-			test: true,
-			data: 'asdasdasdasd'
-		}
-		res.send(data);
-	});
+//v1 endpoints
+module.exports = function (server) {
+	//Index
+	server.get('/api/test', users.test);
+	server.get('/api/start', users.start);
+	server.get('/api/getSession', users.getSession);
+	server.post('/api/saveCollaborationType', users.saveCollaborationType);
+	server.post('/api/saveBirthday', users.saveBirthday);
+	server.post('/api/saveInterests', users.saveInterests);
 
-	// frontend routes =========================================================
-	// route to handle all angular requests
-	app.get('*', function(req, res) {
+  	server.get('*', function(req, res) {
 		res.sendfile('./public/index.html');
 	});
-};
+}
