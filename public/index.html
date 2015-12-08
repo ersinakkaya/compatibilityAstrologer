@@ -9,6 +9,7 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="libs/css/bootstrap.css">
+	<link rel="stylesheet" href="libs/css/bootstrap-datepicker3.standalone.min.css">
 	<link rel="stylesheet" href="css/style.css">
 
 	<!-- JS -->
@@ -44,5 +45,20 @@
 		</div>
 
 	</div>
+	<script type="text/javascript">
+	$(function() {
+		$('body').on('focus',"#user_datepicker", function(){
+		    $(this).datepicker({
+			    orientation: "bottom auto"
+			});
+		})
+
+		$('body').on('focus',"#collaborator_datepicker", function(){
+		    $(this).datepicker({
+			    orientation: "bottom auto"
+			});
+		})
+	});
+	</script>
 </body>
 </html>

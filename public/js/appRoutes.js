@@ -18,9 +18,14 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'BirthdayController'
 		})
 
-		.when('/questions', {
-			templateUrl: 'views/questions.html',
-			controller: 'QuestionsController'
+		.when('/skills', {
+			templateUrl: 'views/skills.html',
+			controller: 'SkillsController'
+		})
+
+		.when('/interests', {
+			templateUrl: 'views/interests.html',
+			controller: 'InterestsController'
 		})
 
 		.when('/result', {

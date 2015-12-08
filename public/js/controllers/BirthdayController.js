@@ -13,7 +13,7 @@ app.controller('BirthdayController', ['$scope', '$location', 'api', function($sc
          };
 		api.post('/saveBirthday?session_key=' + $scope.session_key, data, function(response){
 			if(response.success == true){
-				$location.path('/questions').search({session_key: $scope.session_key});
+				$location.path('/skills').search({session_key: $scope.session_key});
 			}
 		});
 	}

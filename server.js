@@ -10,8 +10,8 @@ var methodOverride = require('method-override');
 // config files
 var mongo = require('./app/db/mongo');
 
-app.set('base_url', 'http://127.0.0.1');
-app.set('port', (process.env.PORT || 5000));
+var base_url = 'http://127.0.0.1';
+var port = process.env.PORT || 5000;
 
 // get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json()); // parse application/json 
@@ -23,7 +23,7 @@ app.use(express.static(__dirname + '/public')); // set the static files location
 
 // Add headers
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', app.get('base_url') + ':' + app.get('port'));
+    res.setHeader('Access-Control-Allow-Origin', base_url + ':' + port);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     // Set to true if you need the website to include cookies in the requests sent

@@ -8,6 +8,7 @@ module.exports = function (server) {
 	server.get('/api/getSession', users.getSession);
 	server.post('/api/saveCollaborationType', users.saveCollaborationType);
 	server.post('/api/saveBirthday', users.saveBirthday);
+	server.post('/api/saveSkills', users.saveSkills);
 	server.post('/api/saveInterests', users.saveInterests);
 
   	server.get('*', function(req, res) {

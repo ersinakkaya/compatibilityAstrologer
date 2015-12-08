@@ -18,7 +18,7 @@ module.exports.getById = function (_id, callback) {
 };
 
 module.exports.update = function (_id, data, callback) {
-	mongo.client.collection("users").update({"_id": ObjectId(_id)}, data, function (err, data) {
+	mongo.client.collection("users").update({"_id": ObjectId(_id)}, data, { upsert: false }, function (err, data) {
 		if (err) {
 			 callback(err);
 			 return;
