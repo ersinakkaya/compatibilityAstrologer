@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<form ng-submit="submit()" ng-controller="CommitmentController">
+			<div class="row">
+				<a href="#" class="list-group-item active">
+					How much time do you expect to dedicate to your projects each week?
+				</a>
+				<div class="col-xs-6">
+					<div class="list-group">
+						<h3>Your Commitment</h3>
+						<label class="list-group-item"><input type="radio" name="collaborator_commitment" ng-model="formData.user_commitment" value="1-2h"/> 1-2 hours</label>
+						<label class="list-group-item"><input type="radio" name="user_commitment" ng-model="formData.user_commitment" value="2-4h"/> 2-4 hours</label>
+						<label class="list-group-item"><input type="radio" name="user_commitment" ng-model="formData.user_commitment" value="4-8h"/> 4-8 hours</label>
+						<label class="list-group-item"><input type="radio" name="user_commitment" ng-model="formData.user_commitment" value="8-12h"/> 8-12 hours</label>
+						<label class="list-group-item"><input type="radio" name="user_commitment" ng-model="formData.user_commitment" value="12ph"/> 12+ hours</label>
+					</div>
+				</div>
+				<div class="col-xs-6">
+				<div class="list-group">
+						<h3>Collaborator Commitment</h3>
+						<label class="list-group-item"><input type="radio" name="collaborator_commitment" ng-model="formData.collaborator_commitment" value="1-2"/> 1-2 hours</label>
+						<label class="list-group-item"><input type="radio" name="collaborator_commitment" ng-model="formData.collaborator_commitment" value="2-4h"/> 2-4 hours</label>
+						<label class="list-group-item"><input type="radio" name="collaborator_commitment" ng-model="formData.collaborator_commitment" value="4-8h"/> 4-8 hours</label>
+						<label class="list-group-item"><input type="radio" name="collaborator_commitment" ng-model="formData.collaborator_commitment" value="8-12h"/> 8-12 hours</label>
+						<label class="list-group-item"><input type="radio" name="collaborator_commitment" ng-model="formData.collaborator_commitment" value="12ph"/> 12+ hours</label>
+					</div>
+				</div>
+			</div>
+			<div style="text-align:center; margin-top: 20px;">
+				<input type="submit" id="submit" value="Continue" class="btn btn-large btn-success" />
+			</div>
+		</form>
+	</div>
+	<div class="col-md-2"></div>
+</div>

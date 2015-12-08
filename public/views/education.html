@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<form ng-submit="submit()" ng-controller="EducationController">
+			<div class="row">
+				<a href="#" class="list-group-item active">
+					What is the highest degree you have achieved?
+				</a>
+				<div class="col-xs-6">
+					<div class="list-group">
+						<h3>Your Degree</h3>
+						<label class="list-group-item"><input type="radio" name="collaborator_degree" ng-model="formData.user_degree" value="High_School"/> High School</label>
+						<label class="list-group-item"><input type="radio" name="user_degree" ng-model="formData.user_degree" value="Associates"/> Associates</label>
+						<label class="list-group-item"><input type="radio" name="user_degree" ng-model="formData.user_degree" value="Bachelors"/> Bachelors</label>
+						<label class="list-group-item"><input type="radio" name="user_degree" ng-model="formData.user_degree" value="Masters"/> Masters</label>
+						<label class="list-group-item"><input type="radio" name="user_degree" ng-model="formData.user_degree" value="PhD"/> PhD</label>
+					</div>
+				</div>
+				<div class="col-xs-6">
+				<div class="list-group">
+						<h3>Collaborator Degree</h3>
+						<label class="list-group-item"><input type="radio" name="collaborator_degree" ng-model="formData.collaborator_degree" value="High_School"/> High School</label>
+						<label class="list-group-item"><input type="radio" name="collaborator_degree" ng-model="formData.collaborator_degree" value="Associates"/> Associates</label>
+						<label class="list-group-item"><input type="radio" name="collaborator_degree" ng-model="formData.collaborator_degree" value="Bachelors"/> Bachelors</label>
+						<label class="list-group-item"><input type="radio" name="collaborator_degree" ng-model="formData.collaborator_degree" value="Masters"/> Masters</label>
+						<label class="list-group-item"><input type="radio" name="collaborator_degree" ng-model="formData.collaborator_degree" value="PhD"/> PhD</label>
+					</div>
+				</div>
+			</div>
+			<div style="text-align:center; margin-top: 20px;">
+				<input type="submit" id="submit" value="Continue" class="btn btn-large btn-success" />
+			</div>
+		</form>
+	</div>
+	<div class="col-md-2"></div>
+</div>

@@ -10,6 +10,10 @@ module.exports = function (server) {
 	server.post('/api/saveBirthday', users.saveBirthday);
 	server.post('/api/saveSkills', users.saveSkills);
 	server.post('/api/saveInterests', users.saveInterests);
+	server.post('/api/saveExperience', users.saveExperience);
+	server.post('/api/saveEducation', users.saveEducation);
+	server.post('/api/saveCommitment', users.saveCommitment);
+	server.get('/api/calculateScore', users.calculateScore);
 
   	server.get('*', function(req, res) {
 		res.sendfile('./public/index.html');

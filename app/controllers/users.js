@@ -203,3 +203,150 @@ module.exports.saveInterests = function (req, res) {
 		});
 	}
 };
+
+module.exports.saveExperience = function (req, res) {
+	if(typeof(req.query.session_key) == 'undefined' || req.query.session_key.length == 0){
+		res.status(200).send({success: false, error: true, message: 'session_key is not defined!'});
+		return;
+	}
+	else{
+		usersModel.getById(req.query.session_key, function(err, data){
+			if(err){
+				body = {
+					success: false,
+					message: "Error on fetching the data: " + err
+				};
+				res.status(200).send(body);
+				return;
+			}
+
+			if(typeof(data) == 'undefined'){
+				res.status(200).send({success: false, error: true, message: 'session_key is not defined!'});
+				return;	
+			}
+			else{
+				data.user.experience = req.body.user_experience;
+				data.collaborator.experience = req.body.collaborator_experience;
+
+				usersModel.update(req.query.session_key, data, function(err, resp){
+					if(err){
+						throw err;
+					}
+					else{
+						res.status(200).send({success: true});
+					}
+				});
+			}
+		});
+	}
+};
+
+module.exports.saveEducation = function (req, res) {
+	if(typeof(req.query.session_key) == 'undefined' || req.query.session_key.length == 0){
+		res.status(200).send({success: false, error: true, message: 'session_key is not defined!'});
+		return;
+	}
+	else{
+		usersModel.getById(req.query.session_key, function(err, data){
+			if(err){
+				body = {
+					success: false,
+					message: "Error on fetching the data: " + err
+				};
+				res.status(200).send(body);
+				return;
+			}
+
+			if(typeof(data) == 'undefined'){
+				res.status(200).send({success: false, error: true, message: 'session_key is not defined!'});
+				return;	
+			}
+			else{
+				data.user.degree = req.body.user_degree;
+				data.collaborator.degree = req.body.collaborator_degree;
+				
+				usersModel.update(req.query.session_key, data, function(err, resp){
+					if(err){
+						throw err;
+					}
+					else{
+						res.status(200).send({success: true});
+					}
+				});
+			}
+		});
+	}
+};
+
+module.exports.saveCommitment = function (req, res) {
+	if(typeof(req.query.session_key) == 'undefined' || req.query.session_key.length == 0){
+		res.status(200).send({success: false, error: true, message: 'session_key is not defined!'});
+		return;
+	}
+	else{
+		usersModel.getById(req.query.session_key, function(err, data){
+			if(err){
+				body = {
+					success: false,
+					message: "Error on fetching the data: " + err
+				};
+				res.status(200).send(body);
+				return;
+			}
+
+			if(typeof(data) == 'undefined'){
+				res.status(200).send({success: false, error: true, message: 'session_key is not defined!'});
+				return;	
+			}
+			else{
+				data.user.commitment = req.body.user_commitment;
+				data.collaborator.commitment = req.body.collaborator_commitment;
+				
+				usersModel.update(req.query.session_key, data, function(err, resp){
+					if(err){
+						throw err;
+					}
+					else{
+						res.status(200).send({success: true});
+					}
+				});
+			}
+		});
+	}
+};
+
+module.exports.calculateScore = function (req, res) {
+	if(typeof(req.query.session_key) == 'undefined' || req.query.session_key.length == 0){
+		res.status(200).send({success: false, error: true, message: 'session_key is not defined!'});
+		return;
+	}
+	else{
+		usersModel.getById(req.query.session_key, function(err, data){
+			if(err){
+				body = {
+					success: false,
+					message: "Error on fetching the data: " + err
+				};
+				res.status(200).send(body);
+				return;
+			}
+
+			if(typeof(data) == 'undefined'){
+				res.status(200).send({success: false, error: true, message: 'session_key is not defined!'});
+				return;	
+			}
+			else{
+				//Here we calculate results
+				data.score = Math.floor((Math.random() * 51)) + 50;
+				usersModel.update(req.query.session_key, data, function(err, resp){
+					if(err){
+						throw err;
+					}
+					else{
+						res.status(200).send({success: true, score: data.score});
+					}
+				});
+			}
+		});
+	}
+};

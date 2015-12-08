@@ -33,6 +33,16 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'ExperienceController'
 		})
 
+		.when('/education', {
+			templateUrl: 'views/education.html',
+			controller: 'EducationController'
+		})
+
+		.when('/commitment', {
+			templateUrl: 'views/commitment.html',
+			controller: 'CommitmentController'
+		})
+
 		.when('/result', {
 			templateUrl: 'views/result.html',
 			controller: 'ResultController'

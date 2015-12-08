@@ -3,5 +3,14 @@ app.controller('ResultController', ['$scope', '$location', 'api', function($scop
 	if(typeof($scope.session_key) == 'undefined'){
 		$location.path('/');
 	}
-	$scope.result = Math.floor((Math.random() * 51)) + 50;
+
+	api.get('/calculateScore?session_key=' + $scope.session_key, {}, function(response){
+		console.log(response);
+    	if(response.success){
+    		$scope.result = response.score;
+    	}
+    	else{
+    		$location.path('/');
+    	}
+	});
 }]);
