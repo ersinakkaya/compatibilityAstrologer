@@ -17,6 +17,7 @@
 	<script src="libs/angular-route/angular-route.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
 	<script src="libs/bootstrap/js/datepicker.js"></script>
 
 	<!-- ANGULAR CUSTOM -->
@@ -49,13 +50,12 @@
 	$(function() {
 		$('body').on('focus',"#user_datepicker", function(){
 		    $(this).datepicker({
-			    orientation: "bottom auto"
+		    	startView: 2
 			});
 		})
 
 		$('body').on('focus',"#collaborator_datepicker", function(){
 		    $(this).datepicker({
-			    orientation: "bottom auto"
 			});
 		})
 	});

@@ -1,50 +1,52 @@
 <div class="row">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
-		<h2 style="padding-bottom:10px;">What is your birthday?</h2>
-		<div class="form-group">
-			<form ng-submit="submit()" ng-controller="BirthdayController">
-				<div class="row">
-					<div class="col-xs-6">
-						<label for="exampleInputEmail1">Your Birthday</label>
-						<br>
-						<div class="input-group date" style="padding:20px 0px 20px 0px;">
-							<input type="text" ng-model="user_birthday" placeholder="Birthday" class="form-control" id="user_datepicker"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-						</div>
-
-						<div ng-init="user_sex='male'" />
-							<label class="radio-inline">
-								<input type="radio" ng-model="user_sex" value="male">Male
-							</label>
-							<label class="radio-inline">
-								<input type="radio" ng-model="user_sex" value="female">Female
-							</label>
-						</div>
-					</div>
 
 
-					<div class="col-xs-6">		
-						<label for="exampleInputEmail1">Collaborator's Birthday</label>
-						<div class="input-group date" style="padding:20px 0px 20px 0px;">
-							<input type="text" ng-model="user_birthday" placeholder="Birthday" class="form-control" id="collaborator_datepicker"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-						</div>
+</div>
+<div>
+	<h2>What is your birthday?</h2>
+	<div class="form-group">
+		<form ng-submit="submit()" ng-controller="BirthdayController">
 
-						<div ng-init="collaborator_sex='female'" style="padding-bottom:10px"/>
-							<label class="radio-inline">
-								<input type="radio" ng-model="collaborator_sex" value="male">Male
-							</label>
-							<label class="radio-inline">
-								<input type="radio" ng-model="collaborator_sex" value="female">Female
-							</label>
-						</div>
-					</div>
+			<div class="row">
+  			<div class="col-md-6">
+			<label for="exampleInputEmail1">Your Birthday</label>
+			<pre>{{dt | date:'fullDate' }}</pre>
+			<div style="display:inline-block; min-height:290px;">
+				<uib-datepicker ng-model="dt" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></uib-datepicker>
+
+
+				<div ng-init="user_sex='male'" />
+				<label class="radio-inline">
+					<input type="radio" ng-model="user_sex" value="male">Male
+				</label>
+				<label class="radio-inline">
+					<input type="radio" ng-model="user_sex" value="female">Female
+				</label>
 				</div>
+			</div>
+  			</div>
+  			<div class="col-md-6">
+			<label for="exampleInputEmail1">Collaborator's Birthday</label>
+			<pre>{{dt | date:'fullDate' }}</pre>
+			<div style="display:inline-block; min-height:290px;">
+				<uib-datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></uib-datepicker>
 
-				<div style="text-align:center">
-					<input type="submit" id="submit" value="Continue" class="btn btn-large btn-success" />
+				<div ng-init="collaborator_sex='female'" style="padding-bottom:10px"/>
+				<label class="radio-inline">
+					<input type="radio" ng-model="collaborator_sex" value="male">Male
+				</label>
+				<label class="radio-inline">
+					<input type="radio" ng-model="collaborator_sex" value="female">Female
+				</label>
 				</div>
-			</form>
-		</div>
+			</div>
+  			</div>
+			</div>
+
+			<div style="text-align:center">
+				<input type="submit" id="submit" value="Continue" class="btn btn-large btn-success" />
+			</div>
+		</form>
 	</div>
-	<div class="col-md-2"></div>
+</div>
 </div>
