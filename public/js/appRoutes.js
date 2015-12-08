@@ -28,6 +28,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'InterestsController'
 		})
 
+		.when('/experience', {
+			templateUrl: 'views/experience.html',
+			controller: 'ExperienceController'
+		})
+
 		.when('/result', {
 			templateUrl: 'views/result.html',
 			controller: 'ResultController'
