@@ -1,4 +1,5 @@
 var usersModel = require('../models/users');
+var utils = require('../services/utils');
 
 module.exports.test = function (req, res) {
 	var data = { 
@@ -337,14 +338,24 @@ module.exports.calculateScore = function (req, res) {
 			}
 			else{
 				//Here we calculate results
-				data.score = Math.floor((Math.random() * 51)) + 50;
-				usersModel.update(req.query.session_key, data, function(err, resp){
+				utils.calculateFinalScore(data, function(err, result){
 					if(err){
-						throw err;
+						body = {
+							success: false,
+							message: "Error on fetching the data: " + err
+						};
+						res.status(200).send(body);
+						return;	
 					}
-					else{
-						res.status(200).send({success: true, score: data.score});
-					}
+					data.result = result;
+					usersModel.update(req.query.session_key, data, function(err, resp){
+						if(err){
+							throw err;
+						}
+						else{
+							res.status(200).send({success: true, score: result.finalScore, result: data.result});
+						}
+					});
 				});
 			}
 		});

@@ -7,7 +7,6 @@ app.controller('MainController', ['$scope', '$location', 'api', function($scope,
         	else{
         		$location.path('/');
         	}
-			
 		});
     }
 }]);

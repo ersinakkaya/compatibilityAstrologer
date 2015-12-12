@@ -5,7 +5,6 @@ app.controller('ResultController', ['$scope', '$location', 'api', function($scop
 	}
 
 	api.get('/calculateScore?session_key=' + $scope.session_key, {}, function(response){
-		console.log(response);
     	if(response.success){
     		$scope.result = response.score;
     	}
