@@ -1,18 +1,15 @@
 // modules =================================================
-var express        = require('express');
-var app            = express();
-var mongoose       = require('mongoose');
-var bodyParser     = require('body-parser');
+var os             = require('os');
+var express        = require('express')
+var bodyParser     = require('body-parser')
 var methodOverride = require('method-override');
+var app            = express();
+var hostname       = os.hostname();
 
-// configuration ===========================================
-	
-// config files
+// configuration ==========================================
 var mongo = require('./app/db/mongo');
-
-var base_url = 'http://127.0.0.1';
+var base_url = (hostname.substring(0,5) == 'ersin')? "http://127.0.0.1" : "http://52.35.155.142";
 var port = process.env.PORT || 5000;
-
 // get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json()); // parse application/json 
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json

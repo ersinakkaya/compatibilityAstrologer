@@ -26,7 +26,7 @@ module.exports.calculateFinalScore = function(data, done){
 			});
 		}
 	], function (err, result) {
-	    // result now equals 'done'
+		if(err) return done(err);
 	    done(null, result);
 	    return;
 	});
@@ -34,9 +34,11 @@ module.exports.calculateFinalScore = function(data, done){
 
 getAstrologicalScore = function(data, callback){
 	if(
-		typeof(data.user.birthday) 		   == "undefined" ||
-		typeof(data.user.sex) 			   == "undefined" ||
-		typeof(data.collaborator.birthday) == "undefined" ||
+		typeof(data.user.birthday) 		   == "undefined"    ||
+		data.user.birthday                 == "Invalid date" ||
+		typeof(data.user.sex) 			   == "undefined"    ||
+		typeof(data.collaborator.birthday) == "undefined"    ||
+		data.collaborator.birthday 		   == "Invalid date" ||
 		typeof(data.collaborator.sex) 	   == "undefined"
 	){
 		callback('undefined birthday or gender');
@@ -61,7 +63,7 @@ getAstrologicalScore = function(data, callback){
 	      'Content-Type': 'application/x-www-form-urlencoded',
 	      'Content-Length':  Buffer.byteLength(request)
 	  },
-	  timeout: 30000
+	  timeout: 5000
 	};
 	//console.log(postOptions);
 	// Set up the request
@@ -80,17 +82,15 @@ getAstrologicalScore = function(data, callback){
 	  });
 	});
 
-	req.setTimeout(30000, function(){
-		console.log('Request took more than ' + (30000/1000) + ' and killed!');
+	req.setTimeout(5000, function(){
 		req.abort();
 		req.end();
-		callback();
+		callback('Request took more than 5s and killed!');
 		return;
 	});
 
 	req.on('error', function(e) {
-		console.log('problem with request: ' + e.message);
-		callback();
+		callback('problem with request: ' + e.message);
 		return;
 	});
 		// post the data

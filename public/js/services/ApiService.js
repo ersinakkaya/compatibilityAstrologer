@@ -2,7 +2,6 @@ angular.module('ApiService', [])
 .factory("api", ['$rootScope', '$q', '$http', '$timeout', 'config', 
 function ($rootScope, $q, $http, $timeout, $config) {
 	var apiBaseUrl = $config.base_url + ":" + $config.port + "/api";
-
 	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 
 	function requestTransformer(data){

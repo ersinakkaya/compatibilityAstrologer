@@ -350,7 +350,12 @@ module.exports.calculateScore = function (req, res) {
 					data.result = result;
 					usersModel.update(req.query.session_key, data, function(err, resp){
 						if(err){
-							throw err;
+							body = {
+								success: false,
+								message: "Error on saving the data: " + err
+							};
+							res.status(200).send(body);
+							return;	
 						}
 						else{
 							res.status(200).send({success: true, score: result.finalScore, result: data.result});
