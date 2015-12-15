@@ -11,6 +11,7 @@ app.controller('BirthdayController', ['$scope', '$location', 'api', function($sc
           	collaborator_birthday: this.collaborator_birthday,
           	collaborator_sex: this.collaborator_sex
          };
+        console.log(data);
 		api.post('/saveBirthday?session_key=' + $scope.session_key, data, function(response){
 			if(response.success == true){
 				$location.path('/skills').search({session_key: $scope.session_key});
